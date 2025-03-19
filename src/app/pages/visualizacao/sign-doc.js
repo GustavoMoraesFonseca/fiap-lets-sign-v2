@@ -8,12 +8,22 @@ inputFile.addEventListener("change", async (event) => {
         alert("Por favor, selecione um arquivo PDF.");
         return;
     }
-
+    
+    if (file.type !== 'application/pdf') {
+        alert("O arquivo selecionado não é um PDF. Por favor, selecione um arquivo PDF.");
+        return;
+    }
+    
     const arrayBuffer = await file.arrayBuffer();
     loadedPdfBytes = arrayBuffer;
+    const pdfBlob = new Blob([arrayBuffer], { type: 'application/pdf' });
+    const pdfUrl = URL.createObjectURL(pdfBlob);
 
-    const url = URL.createObjectURL(new Blob([arrayBuffer], { type: "application/pdf" }));
-    pdfViewer.src = url;
+    var docElement = document.createElement("EMBED");
+    docElement.setAttribute("src", pdfUrl);
+    docElement.setAttribute("width", "600px");
+    docElement.setAttribute("height", "400px");
+    document.getElementById("viewer").appendChild(docElement);
 });
 
 document.getElementById("assinar").addEventListener("click", async () => {
@@ -25,20 +35,21 @@ document.getElementById("assinar").addEventListener("click", async () => {
     const pdfDoc = await PDFLib.PDFDocument.load(loadedPdfBytes);
 
     const firstPage = pdfDoc.getPages()[0];
+    const { width, height } = firstPage.getSize();
 
     const nome = "Seu Nome Aqui";
     const dataAssinatura = new Date().toLocaleString();
 
     firstPage.drawText(`Assinado por: ${nome}`, {
-        x: 50,
-        y: 100,
+        x: width - 200,
+        y: height - 50,
         size: 12,
         color: PDFLib.rgb(0, 0, 0)
     });
 
     firstPage.drawText(`Data e Hora: ${dataAssinatura}`, {
-        x: 50,
-        y: 80,
+        x: width - 50,
+        y: height - 80,
         size: 12,
         color: PDFLib.rgb(0, 0, 0)
     });
