@@ -12,7 +12,7 @@ Projeto destinado para a segunda fase do Challande da faculdade FIAP - Entrega p
 |`Gustavo`|**RM553411**|
 |`Elissandro`|**RM559537**|
 |`Pedro`|**RM5600580**|
-|`Gabriel`|**RM**|
+|`Gabriel`|**RM560780**|
 
 
 ****
