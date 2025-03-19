@@ -13,7 +13,7 @@ body{
 
 .conteudo{
     width: 100%;
-    height: 504px;
+    height: 497px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -31,12 +31,12 @@ body{
     margin: 20px 0;
 }
 
-ul{
+.ul{
     list-style-type: none;
     padding: 0;
 }
 
-li{
+.li{
     text-transform: capitalize;
     margin: 20px 0;
 }
