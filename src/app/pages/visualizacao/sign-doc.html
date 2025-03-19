@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinatura digital</title>
+    <link rel="stylesheet" href="./progress.css">
+</head>
+
+<body>
+    <header>
+        <div class="cabecalho">
+            <h1>Assinatura Digital</h1>
+        </div>
+        <nav>
+            <a href="../historico/historico.html">Histórico de Assinaturas</a>
+            <a href="../visualizacao/sign-doc.html">Nova Assinatura</a>
+            <a href="../sign/sign.html">Cadastro</a>
+        </nav>
+    </header>
+    <main class="conteudo">
+        <h2>Selecionar, Visualizar e Assinar Documentos</h2>
+        <section class="secao1">
+            <input class="input" type="file" id="fileInput" accept="application/pdf">
+            <div id="viewer" style="margin-top: 20px;">
+                <iframe class="exibir" id="pdfViewer" width="600px" height="400px"></iframe>
+            </div>
+        </section>
+        <button class="botao" id="assinar">Adicionar Assinatura</button>
+    </main>
+    <footer>
+        <p>Todos direitos reservados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib"></script>
+    <script src="/visualizacao/sign-doc.js"></script>
+</body>
+
+</html>
