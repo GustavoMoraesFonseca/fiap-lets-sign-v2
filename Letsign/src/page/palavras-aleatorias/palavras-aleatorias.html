@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palavras aleatorias</title>
+    <link rel="stylesheet" href="./palavras-aleatorias.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+<body>
+    <header class="p-3 mb-5 bg-primary text-white text-center fs-2">Palavras Aleatorias</header>
+    <main class="conteudo">
+        <div class="container">
+            <div class="d-grid gap-2 col-3 mx-auto mt-3">
+                <button class="btn btn-primary" type="button" id="gerar">Gerar Palavras</button>
+            </div>
+            <div id="palavrasDiv"></div>
+            <div id="inputContainer" style="margin-top: 20px; display: none;">
+                <p id="instrucao">Insira a palavra 1:</p>
+                <input type="text" id="palavraInserida" placeholder="Digite a palavra" />
+                <p id="feedback" class="feedback"></p>
+            </div>
+            <div class="d-grid gap-2 col-3 mx-auto mt-3">
+                <button class="btn btn-primary" id="validacao" style="display: none;">Finalizar Validação</button>
+            </div>
+            <p id="resultado" style="margin-top: 20px;"></p>
+            </div>    
+        </div>
+    </main>
+    <footer class="p-3 bg-primary text-white text-center fs-5">Todos direitos reservados</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <script src="./palavras-aleatorias.js"></script>
+</body>
+</html>

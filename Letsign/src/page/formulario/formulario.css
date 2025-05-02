@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mensagem {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mensagem.erro {
+    background-color: #ffe0e0; /* Vermelho claro */
+    color: #ff0000; /* Vermelho */
+    border: 1px solid #ffaaaa;
+}
+
+.mensagem.sucesso {
+    background-color: #e0ffe0; /* Verde claro */
+    color: #008000; /* Verde */
+    border: 1px solid #aaffaa;
+}
