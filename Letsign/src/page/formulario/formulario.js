@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('contato');
     const enviarButton = document.querySelector('.btn-primary');
     const mensagemDiv = document.getElementById('mensagem');
+    const ruaInput = document.getElementById('rua');
+    const cidadeInput = document.getElementById('cidade');
+    const estadoInput = document.getElementById('estado');
+    const paisInput = document.getElementById('pais');
+    const cepInput = document.getElementById('cep');
+
 
     function mostrarMensagem(texto, tipo = 'erro') {
         mensagemDiv.textContent = texto;
@@ -45,6 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const telefone = telefoneInput.value;
         const senha = senhaInput.value;
         const confirmarSenha = confirmarSenhaInput.value;
+        const rua = ruaInput.value.trim();
+        const cidade = cidadeInput.value.trim();
+        const estado = estadoInput.value.trim();
+        const pais = paisInput.value.trim();
+        const cep = cepInput.value.trim();
 
         if (!validarNome(nome)) {
             mostrarMensagem('Por favor, digite um nome válido (apenas letras e espaços).');
@@ -67,6 +78,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!validarTelefone(telefone)) {
             mostrarMensagem('Digite um telefone válido com DDD (10 ou 11 dígitos).');
             telefoneInput.focus();
+            return;
+        }
+
+        if (!rua || !cidade || !estado || !pais || !cep) {
+            mostrarMensagem('Todos os campos de endereço são obrigatórios.');
+            return;
+        }
+
+        if (!/^\d{5}-\d{3}$/.test(cep)) {
+            mostrarMensagem('CEP inválido. Use o formato 00000-000.');
+            cepInput.focus();
             return;
         }
 
@@ -93,7 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
             cpf: cpf.replace(/[^\d]/g, ''),
             email: email.trim().toLowerCase(),
             telefone: telefone.trim(),
-            senha: senha 
+            senha: senha,
+            endereco: {
+                rua,
+                cidade,
+                estado,
+                pais,
+                cep
+            }      
         };
 
         localStorage.setItem('cadastroUsuario', JSON.stringify(userData));
